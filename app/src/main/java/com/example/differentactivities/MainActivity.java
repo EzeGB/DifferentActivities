@@ -3,6 +3,7 @@ package com.example.differentactivities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,8 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchSettings (View v){
         //launch a new activity
-
         Intent i = new Intent(this, SettingsActivity.class);
+        String message = ((EditText) findViewById(R.id.editTextText)).getText().toString();
+        i.putExtra("COOL", message);
+        startActivity(i);
+    }
+
+    public void launchExplorer (View v){
+        //launch a new activity
+        Intent i = new Intent(this, ExplorerActivity.class);
         startActivity(i);
     }
 }
