@@ -19,7 +19,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         Intent i = getIntent();
         String message = i.getStringExtra("COOL");
+        String name = i.getStringExtra("NAME");
         ((TextView) findViewById(R.id.textView)).setText(message);
+        if (name==null){
+            ((TextView) findViewById(R.id.textView3)).setText("Warganargo");
+        } else {
+            ((TextView) findViewById(R.id.textView3)).setText(name);
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
